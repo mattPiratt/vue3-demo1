@@ -1,39 +1,48 @@
 <template>
-    <h1>The App</h1>
-    <ul>
-        <learning-resource-item 
-        v-for="resourceItem in storredResources" 
-        v-bind="resourceItem" 
-        :key="resourceItem.id"
-        >
-        </learning-resource-item>
-    </ul>
+  <h1>The App</h1>
+  <storred-resources :resources="storredResources"> </storred-resources>
 </template>
 
 <script>
-import LearningResourceItem from './components/LerningResource/Item.vue';
+import StorredResources from './components/LerningResource/StoredResources.vue';
 
 export default {
-    components: {
-        LearningResourceItem,
-    },
-    data() {
-        return {
-            storredResources: [
-                {
-                    id: 'res1',
-                    title: 'Official giude',
-                    description: 'The official Vue.js documentation',
-                    link: 'https://vuejs.org',
-                },
-                {
-                    id: 'res2',
-                    title: 'Google',
-                    description: 'You must know how to google',
-                    link: 'https://google.com',
-                },
-            ],
-        }
-    }
-}
+  components: {
+    StorredResources,
+  },
+  data() {
+    return {
+      storredResources: [
+        {
+          id: 'res1',
+          title: 'Official giude',
+          description: 'The official Vue.js documentation',
+          link: 'https://vuejs.org',
+        },
+        {
+          id: 'res2',
+          title: 'Google',
+          description: 'You must know how to google',
+          link: 'https://google.com',
+        },
+      ],
+    };
+  },
+};
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+</style>
