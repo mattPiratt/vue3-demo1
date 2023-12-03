@@ -1,14 +1,17 @@
 <template>
-  <h1>The App</h1>
+  <TheHeader title="my Application" />
+
   <storred-resources :resources="storredResources"> </storred-resources>
 </template>
 
 <script>
-import StorredResources from './components/LerningResource/StoredResources.vue';
+import TheHeader from './components/layouts/TheHeader.vue';
+import StorredResources from './components/lerningResource/StoredResources.vue';
 
 export default {
   components: {
     StorredResources,
+    TheHeader,
   },
   data() {
     return {
