@@ -1,35 +1,16 @@
 <template>
   <TheHeader title="my Application" />
-
-  <storred-resources :resources="storredResources"> </storred-resources>
+  <TheResources :resources="storredResources" />
 </template>
 
 <script>
 import TheHeader from './components/layouts/TheHeader.vue';
-import StorredResources from './components/lerningResource/StoredResources.vue';
+import TheResources from './components/lerningResource/TheResources.vue';
 
 export default {
   components: {
-    StorredResources,
     TheHeader,
-  },
-  data() {
-    return {
-      storredResources: [
-        {
-          id: 'res1',
-          title: 'Official giude',
-          description: 'The official Vue.js documentation',
-          link: 'https://vuejs.org',
-        },
-        {
-          id: 'res2',
-          title: 'Google',
-          description: 'You must know how to google',
-          link: 'https://google.com',
-        },
-      ],
-    };
+    TheResources,
   },
 };
 </script>
