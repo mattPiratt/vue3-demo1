@@ -4,6 +4,9 @@
     title="Validation warining"
     @closeDialog="closeDialog"
   >
+    <template #header="slotProps">
+      <h3>{{ slotProps.title }}</h3>
+    </template>
     <template #default>
       <p>Please make sure all fields are not empty.</p>
     </template>

@@ -3,7 +3,7 @@
     <div @click="$emit('closeDialog')"></div>
     <dialog open>
       <header>
-        <slot name="header"
+        <slot name="header" :title="title"
           ><h2>{{ title }}</h2></slot
         >
       </header>
