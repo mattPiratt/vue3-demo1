@@ -1,4 +1,13 @@
 <template>
+  <base-dialog
+    v-if="inputIsInvalid"
+    title="Validation warining"
+    @closeDialog="closeDialog"
+  >
+    <template #default>
+      <p>Please make sure all fields are not empty.</p>
+    </template>
+  </base-dialog>
   <base-card>
     <form @submit.prevent="handleSubmit">
       <div class="form-control">
@@ -28,8 +37,22 @@
 <script>
 export default {
   inject: ['addResource'],
+  data() {
+    return {
+      inputIsInvalid: false,
+    };
+  },
   methods: {
     handleSubmit() {
+      if (
+        this.$refs.titleRef.value.trim() == '' ||
+        this.$refs.descriptionRef.value.trim() == '' ||
+        this.$refs.linkRef.value.trim() == ''
+      ) {
+        this.inputIsInvalid = true;
+        return;
+      }
+
       this.addResource(
         this.$refs.titleRef.value,
         this.$refs.descriptionRef.value,
@@ -38,6 +61,9 @@ export default {
       this.$refs.titleRef.value = '';
       this.$refs.descriptionRef.value = '';
       this.$refs.linkRef.value = '';
+    },
+    closeDialog() {
+      this.inputIsInvalid = false;
     },
   },
 };

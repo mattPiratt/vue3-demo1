@@ -4,7 +4,9 @@
       <div>
         <header>
           <h3>{{ title }}</h3>
-          <base-button mode="flat">Delete</base-button>
+          <base-button mode="flat" @click="removeItemFromList(id)"
+            >Delete</base-button
+          >
         </header>
       </div>
       <p>{{ description }}</p>
@@ -18,6 +20,7 @@
 <script>
 export default {
   props: ['id', 'title', 'description', 'link'],
+  inject: ['removeItemFromList'],
 };
 </script>
 
